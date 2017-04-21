@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .alert {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+    }
+</style>
+
+<div class="alert" id = 'elem'>
+    <strong>Ура!</strong> Вы прочитали это важное сообщение.
+</div>
+
+<button id = 'buttonAppend' onclick="addDivAppend()">PressAppend</button>
+<button id = 'buttonBefore' onclick="addDivBefore()">PressBefore</button>
+
+
+<script>
+    var i = 1;
+   function addDivAppend(){
+       var div = document.createElement('div');
+       div.className = 'alert';
+
+       div.innerHTML = "<strong>УРА!</strong>Вы прочитали это важное сообщение"+i++
+       var elem =document.body;
+       elem.appendChild(div);
+
+       var div2 = div.cloneNode(true);
+       div2.querySelector('strong').innerHTML='Super!';
+       div.parentNode.insertBefore(div2,div.nextSibling);
+   }
+   function addDivBefore() {
+       var div = document.createElement('div');
+       div.className = 'alert';
+
+       div.innerHTML = "<strong>УРА!</strong>Вы прочитали это важное сообщение"+i++
+       var elem =document.body;
+       elem.insertBefore(div,document.body.lastElementChild);
+   }
+</script>
+</body>
+</html>
